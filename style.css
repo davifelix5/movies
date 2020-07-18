@@ -1,0 +1,85 @@
+/* Resets */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+*::selection {
+    background-color: #c1c1c1;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-top: 3px solid red;
+    font-family: 'Sarpanch', sans-serif;
+    color: white;
+    margin-top: 3.6rem;
+    height: 7.1rem;
+    background-color: #000;
+    text-align: center;
+    width: 100%;
+}
+
+footer a {
+    color: white;
+}
+
+/* Corpo */
+
+body {
+    background-color: #313131;
+}
+
+/* Navbar */
+
+#nav-bar {
+    background-color: #000;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 1rem 5%;
+    
+    margin-bottom: 50px;
+
+    border-bottom: 3px solid red
+}
+
+
+#nav-bar h1 {
+    color: white;
+    font-family: 'Sarpanch', sans-serif;
+}
+
+#nav-bar form input,
+#nav-bar form button {
+    font-family: 'Sarpanch', sans-serif;
+}
+
+#nav-bar form input {
+    padding: 5px;
+}
+
+#nav-bar form button {
+    color: white;
+    font-weight: 200;
+    cursor: pointer;
+    
+    padding: 6px;
+    margin-left: 0.35rem;
+    
+    outline: none;
+    border: none;
+
+    border-radius: 0.35rem;
+    background-color: rgb(219, 5, 5);
+}
+

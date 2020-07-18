@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <script src="https://use.fontawesome.com/be6ae361f5.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="img/cinema.svg" type="image/x-icon">
+    <!-- https://www.flaticon.com/br/buscar?word=movie -->
+    <link href="https://fonts.googleapis.com/css2?family=Sarpanch:wght@700&display=swap" rel="stylesheet">
+    <title>League of Movies</title>
+</head>
+
+<body>
+
+    <nav id="nav-bar">
+        <h1>League of Movies</h1>
+        <form method="GET">
+            <input type="text" name="search" id="search" placeholder="Pesquise algo" autocomplete="off" />
+            <button type="submit">Buscar</button>
+        </form>
+    </nav>
+
+    <main>
+        <section id="filter-movies" class="container">
+
+            <form id="filter-form">
+                <select class='option-filter'>
+                    <option disabled hidden selected>Genero</option>
+                </select>
+                <select class='option-filter'>
+                    <option disabled hidden selected>Origem</option>
+                </select>
+                <select class='option-filter'>
+                    <option disabled hidden selected>Premios</option>
+                </select>
+            </form>
+
+            <div id="filtered-movies">
+                <h2>Filtrados</h2>
+                <!-- <div class="not-found">
+                    <p>
+                        Não foi encontrado nenhum filme <i class="fa fa-frown-o" aria-hidden="true"></i>
+                    </p>
+                </div> -->
+                <ul>
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...] <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...] <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...] <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...] <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...] <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...] <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...] <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...] <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...] <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...] <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...] <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </p>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...]
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...]
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...]
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...]
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...]
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...]
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...]
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...]
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...]
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="img/posters.jpg" alt="">
+                        <div class="description">
+                            <p>
+                                Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por
+                                este possuir uma [...]
+                            </p>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+
+        </section>
+
+        <section id="contrast-movies" class="container">
+
+            <div class="spotlight">
+                <h2>Destaques</h2>
+                <div class="carrousel">
+                    <div class="angle-container">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    </div>
+                    <ul>
+                        <li>
+                            <img src="img/posters.jpg" alt="">
+                            <div class="description">
+                                <p>
+                                    Clássico filme com uma história que prende o espectador até o final
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/posters.jpg" alt="">
+                            <div class="description">
+                                <p>
+                                    Clássico filme com uma história que prende o espectador até o final
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/posters.jpg" alt="">
+                            <div class="description">
+                                <p>
+                                    Clássico filme com uma história que prende o espectador até o final
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="angle-container">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </div>
+                    <div class="progress-bar">
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+                        <i class="fa fa-circle-o" aria-hidden="true"></i>
+                        <i class="fa fa-circle-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recomended">
+                <h2>Recomendados</h2>
+                <div class="carrousel">
+                    <div class="angle-container">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    </div>
+                    <ul>
+                        <li>
+                            <img src="img/posters.jpg" alt="">
+                            <div class="description">
+                                <p>
+                                    Clássico filme com uma história que prende o espectador até o final
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/posters.jpg" alt="">
+                            <div class="description">
+                                <p>
+                                    Clássico filme com uma história que prende o espectador até o final
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/posters.jpg" alt="">
+                            <div class="description">
+                                <p>
+                                    Clássico filme com uma história que prende o espectador até o final
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="angle-container">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </div>
+                    <div class="progress-bar">
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+                        <i class="fa fa-circle-o" aria-hidden="true"></i>
+                        <i class="fa fa-circle-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <footer>
+        <p>
+            Por Feliz and Lepão &copy;
+        </p>
+        <p>
+            <i>Shortcut icon</i> feito por <a href="https://www.flaticon.com/br/autores/photo3idea-studio"
+                title="photo3idea_studio">photo3idea_studio</a> por <a href="https://www.flaticon.com/br/"
+                title="Flaticon"> www.flaticon.com</a>
+        </p>
+    </footer>
+
+    <script src="js/main.js" type="module"></script>
+</body>
+
+</html>
