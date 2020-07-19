@@ -1,5 +1,14 @@
 const baseUrl = 'http://www.omdbapi.com/?apikey=699ac45b&s=Star+Wars'
 const filteredMovies = document.querySelector('#filtered-movies ul')
+const form = document.getElementById('filter-form')
+const selects = document.querySelectorAll('#filter-form select')
+
+selects.forEach(select => {
+    select.addEventListener('change', () => {
+        const data = new FormData(form)
+        console.log(Object.fromEntries(data))
+    })
+})
 
 getMovies()
 
