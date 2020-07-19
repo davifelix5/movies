@@ -72,6 +72,9 @@ section:last-child {
 
 .container ul li  {
     position: relative;
+
+    display: flex;
+    align-items: center;
 }
 
 .description {
