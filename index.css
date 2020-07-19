@@ -63,6 +63,13 @@ section:last-child {
     background: #555;
 }
 
+#contrast-movies {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
 .container ul li  {
     position: relative;
 }
@@ -83,6 +90,12 @@ section:last-child {
     transition: all .5s;
     font-size: 80%;
     padding: 0.7rem;
+}
+
+
+.description p {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .description:hover {
@@ -112,10 +125,6 @@ section:last-child {
     text-align: center;
     font-size: .6rem;
     grid-column: 1 / 4;
-}
-
-.spotlight .progress-bar {
-    margin-bottom: 1.4rem;
 }
 
 .container ul li img {
