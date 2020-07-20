@@ -1,6 +1,11 @@
 import { getMovies } from './api.js'
 import { debounceEvent, formatSearch } from './helpers.js'
 import {
+    SPOTLIGHT_TITLES,
+    RECOMENDED_TITLES
+} from './settings.js'
+import { renderCarrouselMovies } from './carrousel.js'
+import {
     renderMovies,
     createLoaderWithContainer,
     createInfoDiv,
@@ -8,7 +13,6 @@ import {
     clearFilteredMovies,
     createInitialMessage
 } from './dom.js'
-
 
 const container = document.querySelector('#filter-movies')
 const filteredContainer = document.querySelector('#filtered-movies')
@@ -41,7 +45,7 @@ const handleSearch = filter => {
         })
 }
 
-const debounceSearch = debounceEvent(handleSearch, 1000)
+const debounceSearch = debounceEvent(handleSearch, 500)
 
 filterForm.addEventListener('submit', e => {
     e.preventDefault()
@@ -66,3 +70,9 @@ inputElement.addEventListener('keyup', e => {
     debounceSearch(formatSearch(value))
 
 })
+
+const recommendedCarrousel = document.getElementById('recommended-container')
+const spotlightCarrousel = document.getElementById('spotlight-container')
+
+renderCarrouselMovies(spotlightCarrousel, SPOTLIGHT_TITLES)
+renderCarrouselMovies(recommendedCarrousel, RECOMENDED_TITLES)

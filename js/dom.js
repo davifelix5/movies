@@ -6,15 +6,14 @@ function removeExisting(className) {
 }
 
 export function renderMovies(movies, container) {
-    removeExisting('movie-list')
     const list = document.createElement('ul')
     list.classList = 'movie-list'
     movies.forEach(movie => {
         const { title, year, poster, genre } = movie
         const movieElement = renderMovie(title, poster, year, genre)
         list.append(movieElement)
-        container.append(list)
     })
+    container.append(list)
 }
 
 export function clearFilteredMovies() {
@@ -25,7 +24,6 @@ export function clearFilteredMovies() {
 }
 
 export function createInfoDiv(container, messageElement) {
-    removeExisting('info')
     const errorDiv = document.createElement('div')
     errorDiv.classList = 'info'
     errorDiv.append(messageElement)
@@ -79,16 +77,16 @@ export function renderMovie(title, poster, year, genre) {
     const li = document.createElement('li')
     const figure = document.createElement('figure')
     const image = document.createElement('img')
-    image.src = poster
-    image.alt = title
+    image.src = poster || `https://via.placeholder.com/300x445/FFF/?text=?`
+    image.alt = title || ''
     const figcaption = document.createElement('figcaption')
     figcaption.classList = 'description'
     const titleParagraph = document.createElement('p')
     const genreParagrash = document.createElement('p')
     const yearParagragh = document.createElement('p')
-    titleParagraph.innerHTML = title
-    genreParagrash.innerHTML = genre
-    yearParagragh.innerHTML = year
+    titleParagraph.innerHTML = title || ''
+    genreParagrash.innerHTML = genre || ''
+    yearParagragh.innerHTML = year || ''
 
 
     figcaption.append(titleParagraph)

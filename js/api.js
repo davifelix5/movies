@@ -1,4 +1,5 @@
 import { BASE_URL } from './settings.js'
+import { formatSearch } from './helpers.js'
 
 export async function getMovies(search) {
 
@@ -16,8 +17,7 @@ export async function getMovies(search) {
             imdbID: id
         } = movie
 
-        const detail = await fetch(BASE_URL + `&i=${id}`)
-        const data = await detail.json()
+        const data = await getDetailMovieById(id)
         const { Genre: genre } = data
 
         const placeholder = `https://via.placeholder.com/300x445/FFF/?text=${title}`
@@ -28,4 +28,19 @@ export async function getMovies(search) {
 
     return movies.filter(Boolean)
 
+}
+
+export async function getDetailMovieById(id) {
+    return await getDetailMovie(`&i=${id}`)
+}
+
+export async function getDetailMovieByTitle(title) {
+    const formatedTitle = formatSearch(title)
+    const filter = `&t=${formatedTitle}`
+    return await getDetailMovie(filter)
+
+}
+
+async function getDetailMovie(filter) {
+    return fetch(BASE_URL + filter).then(response => response.json())
 }

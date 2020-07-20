@@ -3,7 +3,6 @@ export function debounceEvent(handleFunction, timeInterval = 1000, timeout) {
     return function (...args) {
         clearTimeout(timeout)
         timeout = setTimeout(() => {
-            console.log('executed')
             handleFunction(...args)
         }, timeInterval)
     }
