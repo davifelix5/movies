@@ -141,8 +141,20 @@ section:last-child {
     align-items: center;
     justify-content: center;
 
+    background: none;
+    border: none;
+
     font-size: 2rem;
 
+}
+
+.carrousel .angle-container:active i {
+    transform: scale(1.2);
+}
+
+.carrousel .angle-container:enabled {
+    border: none;
+    outline: none;
 }
 
 .carrousel .angle-container i {
