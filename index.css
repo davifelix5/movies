@@ -148,8 +148,12 @@ section:last-child {
 
 }
 
-.carrousel .angle-container:active i {
+.carrousel .angle-container i:hover {
     transform: scale(1.2);
+}
+
+.carrousel .angle-container:active i {
+    transform: scale(1);
 }
 
 .carrousel .angle-container:enabled {
