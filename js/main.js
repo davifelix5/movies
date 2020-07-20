@@ -24,6 +24,7 @@ createInfoDiv(container, intialInfo)
 
 const handleSearch = filter => {
 
+    clearFilteredMovies()
     const search = `&s=${filter}`
     container.append(loader)
     getMovies(search)
@@ -36,7 +37,6 @@ const handleSearch = filter => {
         .finally(() => {
             loader.remove()
         })
-    clearFilteredMovies()
 }
 
 filterForm.addEventListener('submit', e => {
@@ -45,6 +45,7 @@ filterForm.addEventListener('submit', e => {
     handleSearch(filter)
 })
 
+let time = null
 inputElement.addEventListener('keyup', e => {
     const value = e.target.value
     const lastSearch = cachedSearchs.slice(-1)[0]
@@ -60,6 +61,11 @@ inputElement.addEventListener('keyup', e => {
     const filter = value.replace(' ', '+')
 
     cachedSearchs.push(e.target.value)
-    handleSearch(filter)
+    
+    clearTimeout(time)
+
+    time = setTimeout(() => {
+        handleSearch(filter)
+    }, 1000)
 
 })
