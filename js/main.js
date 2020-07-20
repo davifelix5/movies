@@ -1,4 +1,5 @@
 import { getMovies } from './api.js'
+import { debounceEvent, formatSearch } from './helpers.js'
 import {
     renderMovies,
     createLoaderWithContainer,
@@ -8,17 +9,18 @@ import {
     createInitialMessage
 } from './dom.js'
 
+
 const container = document.querySelector('#filter-movies')
+const filteredContainer = document.querySelector('#filtered-movies')
 
 const filterForm = document.querySelector('#filter-form')
 const inputElement = filterForm.querySelector('input')
 
-const filteredContainer = document.querySelector('#filtered-movies')
 const loader = createLoaderWithContainer()
-
 const intialInfo = createInitialMessage()
 
 const cachedSearchs = []
+
 
 createInfoDiv(container, intialInfo)
 
@@ -39,13 +41,13 @@ const handleSearch = filter => {
         })
 }
 
+const debounceSearch = debounceEvent(handleSearch, 1000)
+
 filterForm.addEventListener('submit', e => {
     e.preventDefault()
-    const filter = inputElement.value.replace(' ', '+')
-    handleSearch(filter)
+    handleSearch(formatSearch(inputElement.value))
 })
 
-let time = null
 inputElement.addEventListener('keyup', e => {
     const value = e.target.value
     const lastSearch = cachedSearchs.slice(-1)[0]
@@ -58,14 +60,9 @@ inputElement.addEventListener('keyup', e => {
         createInfoDiv(container, intialInfo)
         return
     }
-    const filter = value.replace(' ', '+')
 
     cachedSearchs.push(e.target.value)
-    
-    clearTimeout(time)
 
-    time = setTimeout(() => {
-        handleSearch(filter)
-    }, 1000)
+    debounceSearch(formatSearch(value))
 
 })
