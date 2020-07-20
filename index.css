@@ -168,6 +168,14 @@ section:last-child {
     grid-column: 1 / 4;
 }
 
+.carrousel .progress-bar i {
+    cursor: pointer;
+}
+
+.carrousel .progress-bar i:hover {
+    transform: scale(1.1);
+}
+
 .container ul li img {
     width: 100%;
     cursor: pointer;
