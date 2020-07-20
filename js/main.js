@@ -18,6 +18,8 @@ const loader = createLoaderWithContainer()
 
 const intialInfo = createInitialMessage()
 
+const cachedSearchs = []
+
 createInfoDiv(container, intialInfo)
 
 const handleSearch = filter => {
@@ -27,10 +29,11 @@ const handleSearch = filter => {
     getMovies(search)
         .then(movies => {
             renderMovies(movies, filteredContainer)
-            loader.remove()
         })
         .catch(error => {
             createInfoDiv(container, createNotFoundInfo())
+        })
+        .finally(() => {
             loader.remove()
         })
     clearFilteredMovies()
@@ -44,6 +47,11 @@ filterForm.addEventListener('submit', e => {
 
 inputElement.addEventListener('keyup', e => {
     const value = e.target.value
+    const lastSearch = cachedSearchs.slice(-1)[0]
+
+    if (value === lastSearch) return
+    if (document.querySelector('.loader-container')) return
+
     if (value.length === 0) {
         clearFilteredMovies()
         createInfoDiv(container, intialInfo)
@@ -51,6 +59,7 @@ inputElement.addEventListener('keyup', e => {
     }
     const filter = value.replace(' ', '+')
 
+    cachedSearchs.push(e.target.value)
     handleSearch(filter)
 
 })
