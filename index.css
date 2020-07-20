@@ -133,7 +133,7 @@ section:last-child {
 
 .carrousel {
     display: grid;
-    grid-template-columns: 5% 90% 5% ;
+    grid-template-columns: 7.5% 85% 7.5% ;
 }
 
 .carrousel .angle-container {
@@ -146,6 +146,10 @@ section:last-child {
 
     font-size: 2rem;
 
+}
+
+.carrousel ul {
+    grid-gap: 1rem;
 }
 
 .carrousel .angle-container i:hover {
