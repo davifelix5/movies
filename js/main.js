@@ -1,48 +1,56 @@
-const baseUrl = 'http://www.omdbapi.com/?apikey=699ac45b&s=Star+Wars'
-const filteredMovies = document.querySelector('#filtered-movies ul')
-const form = document.getElementById('filter-form')
-const selects = document.querySelectorAll('#filter-form select')
+import { getMovies } from './api.js'
+import {
+    renderMovies,
+    createLoaderWithContainer,
+    createInfoDiv,
+    createNotFoundInfo,
+    clearFilteredMovies,
+    createInitialMessage
+} from './dom.js'
 
-selects.forEach(select => {
-    select.addEventListener('change', () => {
-        const data = new FormData(form)
-        console.log(Object.fromEntries(data))
-    })
+const container = document.querySelector('#filter-movies')
+
+const filterForm = document.querySelector('#filter-form')
+const inputElement = filterForm.querySelector('input')
+
+const filteredContainer = document.querySelector('#filtered-movies')
+const loader = createLoaderWithContainer()
+
+const intialInfo = createInitialMessage()
+
+createInfoDiv(container, intialInfo)
+
+const handleSearch = filter => {
+
+    const search = `&s=${filter}`
+    container.append(loader)
+    getMovies(search)
+        .then(movies => {
+            renderMovies(movies, filteredContainer)
+            loader.remove()
+        })
+        .catch(error => {
+            createInfoDiv(container, createNotFoundInfo())
+            loader.remove()
+        })
+    clearFilteredMovies()
+}
+
+filterForm.addEventListener('submit', e => {
+    e.preventDefault()
+    const filter = inputElement.value.replace(' ', '+')
+    handleSearch(filter)
 })
 
-getMovies()
+inputElement.addEventListener('keyup', e => {
+    const value = e.target.value
+    if (value.length === 0) {
+        clearFilteredMovies()
+        createInfoDiv(container, intialInfo)
+        return
+    }
+    const filter = value.replace(' ', '+')
 
-async function getMovies() {
-    const response = await fetch(baseUrl)
-    const { Search: data } = await response.json()
+    handleSearch(filter)
 
-    data.forEach(movie => {
-        const { Title: title, Poster: poster } = movie
-
-        const movieElement = renderMovie(title, poster, title)
-        filteredMovies.append(movieElement)
-    })
-}
-
-function renderMovie(title, poster, desctiption) {
-    const li = document.createElement('li')
-    const figure = document.createElement('figure')
-    const image = document.createElement('img')
-    image.src = poster
-    image.alt = title
-    const figcaption = document.createElement('figcaption')
-    figcaption.classList = 'description'
-    const paragraph = document.createElement('p')
-    paragraph.innerHTML = desctiption
-
-
-    figcaption.append(paragraph)
-    figure.append(image)
-    figure.append(figcaption)
-    li.append(figure)
-
-    return li
-
-}
-
-
+})

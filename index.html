@@ -27,7 +27,9 @@
         <section id="filter-movies" class="container">
 
             <form id="filter-form">
-                <select name="genre" class='option-filter'>
+                <input type="text" name="filter" id="filter" placeholder="Ache aqui os melhores filmes">
+                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                <!-- <select name="genre" class='option-filter'>
                     <option disabled hidden selected>Genero</option>
                     <option value="romance">Romance</option>
                     <option value="action">Ação</option>
@@ -41,7 +43,7 @@
                     <option disabled hidden selected>Premios</option>
                     <option value="oscar">Oscar</option>
                     <option value="golden-globe">Globo de ouro</option>
-                </select>
+                </select> -->
             </form>
 
             <div id="filtered-movies">
@@ -51,9 +53,9 @@
                         Não foi encontrado nenhum filme <i class="fa fa-frown-o" aria-hidden="true"></i>
                     </p>
                 </div> -->
-                <ul>
+                <!-- <ul>
 
-                </ul>
+                </ul> -->
             </div>
 
         </section>
@@ -185,7 +187,7 @@
         </p>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js" type="module"></script>
 </body>
 
 </html>
