@@ -1,10 +1,3 @@
-function removeExisting(className) {
-    const existing = document.querySelector(`.${className}`)
-    if (existing) {
-        existing.remove()
-    }
-}
-
 export function renderMovies(movies, container) {
     const list = document.createElement('ul')
     list.classList = 'movie-list'
