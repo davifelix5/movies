@@ -29,10 +29,8 @@ const cachedSearchs = []
 createInfoDiv(container, intialInfo)
 
 const handleSearch = filter => {
-
-    clearFilteredMovies()
     const search = `&s=${filter}`
-    container.append(loader)
+
     getMovies(search)
         .then(movies => {
             renderMovies(movies, filteredContainer)
@@ -41,15 +39,17 @@ const handleSearch = filter => {
             createInfoDiv(container, createNotFoundInfo())
         })
         .finally(() => {
-            loader.remove()
+            if (document.contains(loader)) loader.remove()
         })
 }
 
-const debounceSearch = debounceEvent(handleSearch, 500)
+const [debounceSearch, clearSearchDebounce] = debounceEvent(handleSearch, 1000)
 
 filterForm.addEventListener('submit', e => {
     e.preventDefault()
+    container.append(loader)
     handleSearch(formatSearch(inputElement.value))
+    clearFilteredMovies()
 })
 
 inputElement.addEventListener('keyup', e => {
@@ -57,14 +57,16 @@ inputElement.addEventListener('keyup', e => {
     const lastSearch = cachedSearchs.slice(-1)[0]
 
     if (value === lastSearch) return
-    if (document.querySelector('.loader-container')) return
+
+    clearFilteredMovies()
 
     if (value.length === 0) {
-        clearFilteredMovies()
+        clearSearchDebounce()
         createInfoDiv(container, intialInfo)
         return
     }
 
+    container.append(loader)
     cachedSearchs.push(e.target.value)
 
     debounceSearch(formatSearch(value))

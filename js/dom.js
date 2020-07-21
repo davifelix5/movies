@@ -19,8 +19,10 @@ export function renderMovies(movies, container) {
 export function clearFilteredMovies() {
     const list = document.querySelector('#filtered-movies ul')
     const info = document.querySelector('#filter-movies .info')
+    const loader = document.querySelector('.loader-container')
     if (list) list.remove()
     if (info) info.remove()
+    if (loader) loader.remove()
 }
 
 export function createInfoDiv(container, messageElement) {
