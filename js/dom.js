@@ -1,4 +1,12 @@
+export function preventRepeated(selector, container) {
+    const repetedElement = container.querySelector(selector)
+    if (repetedElement) {
+        repetedElement.remove()
+    }
+}
+
 export function renderMovies(movies, container) {
+    preventRepeated('.movie-list', container)
     const list = document.createElement('ul')
     list.classList = 'movie-list'
     movies.forEach(movie => {
@@ -19,6 +27,7 @@ export function clearFilteredMovies() {
 }
 
 export function createInfoDiv(container, messageElement) {
+    preventRepeated('.info', container)
     const errorDiv = document.createElement('div')
     errorDiv.classList = 'info'
     errorDiv.append(messageElement)

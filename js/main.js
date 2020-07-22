@@ -30,7 +30,7 @@ createInfoDiv(container, intialInfo)
 
 const handleSearch = filter => {
     const search = `&s=${filter}`
-
+    console.log('executed with ', filter)
     getMovies(search)
         .then(movies => {
             renderMovies(movies, filteredContainer)
@@ -45,23 +45,34 @@ const handleSearch = filter => {
 
 const [debounceSearch, clearSearchDebounce] = debounceEvent(handleSearch, 1000)
 
+function isRepeatedSearch(value) {
+    const lastSearch = cachedSearchs.slice(-1)[0]
+    if (value === lastSearch) return true
+    return false
+}
+
 filterForm.addEventListener('submit', e => {
     e.preventDefault()
+    const value = inputElement.value
+
+    if (isRepeatedSearch(value)) return
+
+    clearSearchDebounce()
     container.append(loader)
-    handleSearch(formatSearch(inputElement.value))
+    handleSearch(formatSearch(value))
+    cachedSearchs.push(value)
     clearFilteredMovies()
 })
 
 inputElement.addEventListener('keyup', e => {
     const value = e.target.value
-    const lastSearch = cachedSearchs.slice(-1)[0]
 
-    if (value === lastSearch) return
+    if (isRepeatedSearch(value)) return
 
     clearFilteredMovies()
-
     if (value.length === 0) {
         clearSearchDebounce()
+        loader.remove()
         createInfoDiv(container, intialInfo)
         return
     }
