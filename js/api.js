@@ -14,14 +14,12 @@ export async function getMovies(search) {
         const {
             Title: title,
             Year: year,
+            Poster: poster,
             imdbID: id
         } = movie
 
         const data = await getDetailMovieById(id)
         const { Genre: genre } = data
-
-        const placeholder = `https://via.placeholder.com/300x445/FFF/?text=${title}`
-        const poster = movie.Poster === "N/A" ? placeholder : movie.Poster
 
         movies.push({ title, poster, year, genre })
     }

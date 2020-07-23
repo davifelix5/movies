@@ -83,9 +83,3 @@ inputElement.addEventListener('keyup', e => {
     debounceSearch(formatSearch(value))
 
 })
-
-const recommendedCarrousel = document.getElementById('recommended-container')
-const spotlightCarrousel = document.getElementById('spotlight-container')
-
-renderCarrouselMovies(spotlightCarrousel, SPOTLIGHT_TITLES)
-renderCarrouselMovies(recommendedCarrousel, RECOMENDED_TITLES)

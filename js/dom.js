@@ -14,7 +14,15 @@ export function renderMovies(movies, container) {
         const movieElement = renderMovie(title, poster, year, genre)
         list.append(movieElement)
     })
+    if (container.classList.contains("list-container")) list.append(createEmptyPoster())
     container.append(list)
+}
+
+export function createEmptyPoster() {
+    const emptyPoster = document.createElement('li')
+    emptyPoster.classList.add('placeholder')
+    emptyPoster.append(createIcon('fa fa-plus'))
+    return emptyPoster
 }
 
 export function clearFilteredMovies() {
@@ -79,9 +87,11 @@ export function createLoaderWithContainer() {
 export function renderMovie(title, poster, year, genre) {
 
     const li = document.createElement('li')
+    li.classList.add('movie')
     const figure = document.createElement('figure')
     const image = document.createElement('img')
-    image.src = poster || `https://via.placeholder.com/300x445/FFF/?text=?`
+    const posterLink = poster || `https://via.placeholder.com/300x445/FFF/?text=?`
+    image.src = posterLink == 'N/A' ? `https://via.placeholder.com/300x445/FFF/?text=${title}` : posterLink
     image.alt = title || ''
     const figcaption = document.createElement('figcaption')
     figcaption.classList = 'description'
