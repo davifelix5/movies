@@ -42,3 +42,17 @@ export async function getDetailMovieByTitle(title) {
 async function getDetailMovie(filter) {
     return fetch(BASE_URL + filter).then(response => response.json())
 }
+
+export async function getMovieListByTitles(titles) {
+    const movies = []
+    for (const title of titles) {
+        const movie = await getDetailMovieByTitle(title)
+        movies.push({
+            title: movie.Title,
+            poster: movie.Poster,
+            genre: movie.Genre,
+            year: movie.Year
+        })
+    }
+    return movies
+}

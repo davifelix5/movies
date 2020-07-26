@@ -3,18 +3,17 @@
 
 <head>
     <script src="https://use.fontawesome.com/be6ae361f5.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="index.css">
-    <link rel="shortcut icon" href="img/cinema.svg" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="shortcut icon" href="img/cinema.svg" type="image/x-icon" />
     <!-- https://www.flaticon.com/br/buscar?word=movie -->
-    <link href="https://fonts.googleapis.com/css2?family=Sarpanch:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarpanch:wght@700&display=swap" rel="stylesheet" />
     <title>League of Movies</title>
 </head>
 
 <body>
-
     <nav id="nav-bar">
         <h1>League of Movies</h1>
         <form method="GET">
@@ -25,15 +24,16 @@
 
     <main>
         <section id="filter-movies" class="container">
-
             <form id="filter-form">
                 <input type="text" name="filter" id="filter" placeholder="Ache aqui os melhores filmes"
-                    spellcheck="false">
-                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    spellcheck="false" />
+                <button type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
                 <!-- <select name="genre" class='option-filter'>
                     <option disabled hidden selected>Genero</option>
                     <option value="romance">Romance</option>
-                    <option value="action">Ação</option>
+                    <option value="action">AÃ§Ã£o</option>
                 </select>
                 <select name="origin" class='option-filter'>
                     <option disabled hidden selected>Origem</option>
@@ -51,54 +51,68 @@
                 <h2>Filtrados</h2>
                 <!-- <div class="not-found">
                     <p>
-                        Não foi encontrado nenhum filme <i class="fa fa-frown-o" aria-hidden="true"></i>
+                        NÃ£o foi encontrado nenhum filme <i class="fa fa-frown-o" aria-hidden="true"></i>
                     </p>
                 </div> -->
                 <!-- <ul>
 
                 </ul> -->
             </div>
-
         </section>
 
         <section id="contrast-movies" class="container">
-
             <div class="spotlight">
                 <h2>Destaques</h2>
                 <div class="carrousel">
-                    <button class="angle-container">
-                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    </button>
-                    <div class="list-container"> </div>
-                    <button class="angle-container">
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                    </button>
+                    <div class="movies">
+                        <button class="angle-container-back">
+                            <i class="fa fa-angle-left"></i>
+                        </button>
+                        <div class="list-container">
+                            <div class="loader-container">
+                                <div class="loader"></div>
+                            </div>
+                        </div>
+                        <button class="angle-container-next">
+                            <i class="fa fa-angle-right"></i>
+                        </button>
+                    </div>
+                    <div class="progress-bar"></div>
                 </div>
             </div>
 
             <div class="recommended">
                 <h2>Recomendados</h2>
                 <div class="carrousel">
-                    <button class="angle-container">
-                        <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    </button>
-                    <div class="list-container"></div>
-                    <button class="angle-container">
-                        <i class="fa fa-angle-right" aria-hidden="true"></i>
-                    </button>
+                    <div class="movies">
+                        <button class="angle-container-back">
+                            <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        </button>
+                        <div class="list-container">
+                            <div class="loader-container">
+                                <div class="loader"></div>
+                            </div>
+                        </div>
+                        <button class="angle-container-next">
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="progress-bar"></div>
                 </div>
             </div>
-
         </section>
     </main>
     <footer>
         <p>
-            Por Feliz and Lepão &copy;
+            Por Feliz and LepÃ£o &copy;
         </p>
         <p>
-            <i>Shortcut icon</i> feito por <a href="https://www.flaticon.com/br/autores/photo3idea-studio"
-                title="photo3idea_studio" target="_blank"> photo3idea_studio</a> por <a
-                href="https://www.flaticon.com/br/" title="Flaticon" target="_blank"> www.flaticon.com</a>
+            <i>Shortcut icon</i> feito por
+            <a href="https://www.flaticon.com/br/autores/photo3idea-studio" title="photo3idea_studio" target="_blank">
+                photo3idea_studio</a>
+            por
+            <a href="https://www.flaticon.com/br/" title="Flaticon" target="_blank">
+                www.flaticon.com</a>
         </p>
     </footer>
 

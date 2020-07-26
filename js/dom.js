@@ -5,24 +5,19 @@ export function preventRepeated(selector, container) {
     }
 }
 
-export function renderMovies(movies, container) {
-    preventRepeated('.movie-list', container)
+export function createMovieList(movies) {
     const list = document.createElement('ul')
-    list.classList = 'movie-list'
     movies.forEach(movie => {
-        const { title, year, poster, genre } = movie
-        const movieElement = renderMovie(title, poster, year, genre)
+        const movieElement = renderMovie(movie)
         list.append(movieElement)
     })
-    if (container.classList.contains("list-container")) list.append(createEmptyPoster())
-    container.append(list)
+    return list
 }
 
-export function createEmptyPoster() {
-    const emptyPoster = document.createElement('li')
-    emptyPoster.classList.add('placeholder')
-    emptyPoster.append(createIcon('fa fa-plus'))
-    return emptyPoster
+export function renderMovies(movies, container) {
+    preventRepeated('.movie-list', container)
+    const list = createMovieList(movies)
+    container.append(list)
 }
 
 export function clearFilteredMovies() {
@@ -84,7 +79,7 @@ export function createLoaderWithContainer() {
     return loaderContainer
 }
 
-export function renderMovie(title, poster, year, genre) {
+export function renderMovie({ title, poster, year, genre }) {
 
     const li = document.createElement('li')
     li.classList.add('movie')
