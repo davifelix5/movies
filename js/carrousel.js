@@ -11,6 +11,7 @@ export default function createCarrousel(moviesList, container, amount = 3) {
     const progressCircles = createProgressCircles(groups);
     progressCircles.forEach(circle => progressBar.append(circle));
     const classes = ["hidden-left", "selected", "hidden-right"];
+    const buttonDisabledTime = 200
     const getSelected = () => container.querySelector(".selected");
     const getRenderedElementsByClass = () => {
         const hiddenRight = listContainer.querySelector(".hidden-right");
@@ -25,6 +26,15 @@ export default function createCarrousel(moviesList, container, amount = 3) {
 
     initCarrousel();
 
+    function toogleButtons() {
+        nextBtn.disabled = true
+        backBtn.disabled = true
+        setTimeout(() => {
+            nextBtn.disabled = false
+            backBtn.disabled = false
+        }, buttonDisabledTime)
+    }
+
     function initCarrousel() {
         const [firstGroup] = groups
         for (const gp of groups) {
@@ -37,6 +47,7 @@ export default function createCarrousel(moviesList, container, amount = 3) {
     }
 
     function handlePass(getNextIndex) {
+        toogleButtons()
         getRenderedElementsByClass().forEach(group => {
             if (!group) return;
             const { 0: className } = group.classList;
@@ -68,11 +79,9 @@ export default function createCarrousel(moviesList, container, amount = 3) {
     function fetchNextGroup() {
         const elements = getRenderedElements()
         const selected = getSelected()
-        elements.slice(0, 1).forEach(el => {
-            el.remove()
-            el.classList = 'hidden-right'
-            listContainer.append(el)
-        })
+        const [firstElement] = elements.slice(0, 1)
+        firstElement.classList = 'hidden-right'
+        listContainer.append(firstElement)
         selected.classList = 'hidden-left'
         const pass = () => {
             selected.removeEventListener('transitionstart', pass)
@@ -84,11 +93,9 @@ export default function createCarrousel(moviesList, container, amount = 3) {
     function fetchBackGroup() {
         const elements = getRenderedElements()
         const selected = getSelected()
-        elements.slice(-1).reverse().forEach(el => {
-            el.remove()
-            el.classList = 'hidden-left'
-            listContainer.prepend(el)
-        })
+        const [lastElement] = elements.slice(-1)
+        lastElement.classList = 'hidden-left'
+        listContainer.prepend(lastElement)
         selected.classList = 'hidden-right'
         const back = () => {
             selected.removeEventListener('transitionstart', back)
@@ -124,7 +131,7 @@ export default function createCarrousel(moviesList, container, amount = 3) {
         const offset = Math.abs(difference);
         for (let i = 0; i < offset; i++) {
             setTimeout(() => {
-                difference > 0 ? nextBtn.click() : backBtn.click();
+                difference > 0 ? clickNext() : clickBack();
             }, 100 * i);
         }
     }
