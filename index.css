@@ -19,14 +19,12 @@ section:last-child {
   margin-left: 2%;
 }
 
-.recommended, 
-.spotlight {
-  min-width: 95%;
-  min-height: 350px;
-}
-
 #contrast-movies {
   align-self: center;
+}
+
+#contrast-movies div:not(:first-child) h2 {
+  margin-top: 1.2rem;
 }
 
 /* Containers */
@@ -43,7 +41,6 @@ section:last-child {
 .container figure {
   position: relative;
   cursor: pointer;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,7 +82,7 @@ section:last-child {
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
   transition: all 0.5s;
-  font-size: 0.8rem;
+  font-size: .8rem;
   padding: 0.7rem;
 }
 

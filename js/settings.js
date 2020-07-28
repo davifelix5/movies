@@ -7,12 +7,16 @@ export const SPOTLIGHT_TITLES = [
     'Rogue One',
     'Superman',
     'Frozen',
+    'Beauty and the beast',
+    'Lisbela and The Prisoner',
+    "A dog's will"
 ]
 
 export const RECOMENDED_TITLES = [
     'Avengers Endgame',
     'The Count of Monte Cristo',
     'Little manhattan',
+    'Anne with an E',
     'Smurfs',
     'Smurfs 2',
 ]
