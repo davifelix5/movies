@@ -23,10 +23,8 @@ export function renderMovies(movies, container) {
 export function clearFilteredMovies() {
     const list = document.querySelector('#filtered-movies ul')
     const info = document.querySelector('#filter-movies .info')
-    const loader = document.querySelector('.loader-container')
     if (list) list.remove()
     if (info) info.remove()
-    if (loader) loader.remove()
 }
 
 export function createInfoDiv(container, messageElement) {
@@ -77,6 +75,27 @@ export function createLoaderWithContainer() {
     const loader = createLoader()
     loaderContainer.append(loader)
     return loaderContainer
+}
+
+export function createActorsList(actors) {
+    const list = document.createElement(list)
+    actors.forEach(actor => {
+        const li = document.createElement('li')
+        li.append(createActorElement(actor))
+        list.append(li)
+    })
+    return list
+}
+
+export function createActorElement({ image, name }) {
+    const figure = document.createElement('figure')
+    const figcaption = document.createElement('figcaption')
+    figcaption.innerHTML = name
+    const img = document.createElement('img')
+    img.src = image
+    figure.append(img)
+    figure.append(figcaption)
+    return li
 }
 
 export function renderMovie({ title, poster, year, genre }) {

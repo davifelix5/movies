@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="details.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sarpanch:wght@700&display=swap" rel="stylesheet">
+    <title>League of Movies</title>
+</head>
+
+<body>
+
+    <nav id="nav-bar">
+        <h1>League of Movies</h1>
+        <form method="GET">
+            <input type="text" name="search" id="search">
+            <button type="submit">Buscar</button>
+        </form>
+    </nav>
+    <div id="window">
+        <div id="movie-detail">
+            <div class="left">
+                <section id="links">
+
+                    <div class="movie-image">
+                        <img src="./img/posters.jpg" alt="">
+                    </div>
+
+                    <div class="movie-icons">
+                        <a href="https://netflix.com" target="_blank">
+                            <img src="img/netflix.png" alt="">
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=X9F6Ssb7GHo" target="_blank">
+                            <img src="img/youtube.png" alt="">
+                        </a>
+                    </div>
+
+                </section>
+
+                <section id="actors">
+                    <div class="carrousel">
+                        <div class="movies">
+                            <button class="angle-container-back">
+                                <i class="fa fa-angle-left"></i>
+                            </button>
+                            <div class="list-container">
+                                <div class="loader-container">
+                                    <div class="loader"></div>
+                                </div>
+                            </div>
+                            <button class="angle-container-next">
+                                <i class="fa fa-angle-right"></i>
+                            </button>
+                        </div>
+                        <div class="progress-bar"></div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="right">
+                <section id="movie-details">
+                    <h2>SINOPSE</h2>
+                    <p>Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por este possuir
+                        uma
+                        belíssima mulher. Influente, acaba fazendo com que Dantes, um homem pobre e honesto, seja
+                        acusado de
+                        traição e assassinato, indo parar em uma prisão ilhada e isolada do mundo. Dantes, ao longo dos
+                        anos
+                        que fica preso, vai perdendo a fé em Deus, até que encontra um padre que também estava preso e
+                        tinha
+                        um plano de fuga. Ele então escapa da prisão cheio de ódio e sedento por vingança.</p>
+                    <p>Fernand Mondego não consegue mais suportar a inveja que possui de Edmond Dantes, por este possuir
+                        uma
+                        belíssima mulher. Influente, acaba fazendo com que Dantes, um homem pobre e honesto, seja
+                        acusado de
+                        traição e assassinato, indo parar em uma prisão ilhada e isolada do mundo. Dantes, ao longo dos
+                        anos
+                        que fica preso, vai perdendo a fé em Deus, até que encontra um padre que também estava preso e
+                        tinha
+                        um plano de fuga. Ele então escapa da prisão cheio de ódio e sedento por vingança.</p>
+                    <h2>Criticas</h2>
+                    <p>Krl borracha mo bom</p>
+                    <a href="https://www.rottentomatoes.com/m/1110288-count_of_monte_cristo" target="_blank"
+                        class="ranking">
+                        <img src="img/tomate.jpg">
+                    </a>
+                </section>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <script src="./js/details.js" type="module"></script>
+
+</body>
+
+</html>

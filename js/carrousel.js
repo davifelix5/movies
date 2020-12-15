@@ -1,7 +1,7 @@
 import { createMovieList } from './dom.js'
 import { getMovieListByTitles } from './api.js'
 
-export default function createCarrousel(moviesList, container, amount = 3) {
+export default function createCarrousel(moviesList, container, mountDomList, amount = 3) {
     const movies = moviesList.slice();
     const listContainer = container.querySelector(".list-container");
     const groups = createMovieGroups(movies);
@@ -11,7 +11,7 @@ export default function createCarrousel(moviesList, container, amount = 3) {
     const progressCircles = createProgressCircles(groups);
     progressCircles.forEach(circle => progressBar.append(circle));
     const classes = ["hidden-left", "selected", "hidden-right"];
-    const buttonDisabledTime = 200
+    const buttonDisabledTime = 500
     const getSelected = () => container.querySelector(".selected");
     const getRenderedElementsByClass = () => {
         const hiddenRight = listContainer.querySelector(".hidden-right");
@@ -127,7 +127,6 @@ export default function createCarrousel(moviesList, container, amount = 3) {
     function passByCircles(selectedKey, destinationKey) {
         const variation = destinationKey - selectedKey;
         const difference = variation;
-        console.log(difference)
         const offset = Math.abs(difference);
         for (let i = 0; i < offset; i++) {
             setTimeout(() => {
@@ -140,7 +139,7 @@ export default function createCarrousel(moviesList, container, amount = 3) {
         const movieLists = [];
         while (movies.length) {
             const movieGroup = movies.splice(0, amount);
-            movieLists.push(createMovieList(movieGroup));
+            movieLists.push(mountDomList(movieGroup));
         }
         return movieLists.map((movieList, index) => {
             const group = document.createElement("div");
@@ -185,6 +184,7 @@ export function startMovieCarrousel(titles, container, movieAmount = 3) {
             const carrousel = createCarrousel(
                 movies,
                 container,
+                createMovieList,
                 movieAmount
             )
             carrousel.start()

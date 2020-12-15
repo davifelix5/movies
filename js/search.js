@@ -28,6 +28,7 @@ export default function movieSearch() {
     const handleSearch = filter => {
         const search = `&s=${filter}`
         console.log('executed with ', filter)
+        clearFilteredMovies()
         getMovies(search)
             .then(movies => {
                 renderMovies(movies, filteredContainer)
@@ -56,10 +57,10 @@ export default function movieSearch() {
             if (isRepeatedSearch(value)) return
 
             clearSearchDebounce()
+            clearFilteredMovies()
             container.append(loader)
             handleSearch(formatSearch(value))
             cachedSearchs.push(value)
-            clearFilteredMovies()
         })
 
         inputElement.addEventListener('keyup', e => {
@@ -68,6 +69,7 @@ export default function movieSearch() {
             if (isRepeatedSearch(value)) return
 
             clearFilteredMovies()
+
             if (value.length === 0) {
                 clearSearchDebounce()
                 loader.remove()
